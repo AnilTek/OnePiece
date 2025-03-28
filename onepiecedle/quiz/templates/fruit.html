@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onepiecedle</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"> <!-- CSS Dosyan -->
+</head>
+<body>
+    <div class="container">
+       <br>
+
+       <div class="game-modes-container">
+        <!-- LOGO (Üstte Olacak) -->
+        <div class="logo-wrapper">
+            <audio id="myAudio">
+                <source src="{% static "images/memories.mp3" %}" type="audio/ogg">
+                <source src="{% static "images/memories.mp3" %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <button id="playbutton" onclick="playAudio()" type="button"><img src="{% static 'images/play_music.png' %}" alt=""></button>
+              <button id="pausebutton" onclick="pauseAudio()" type="button"><img src="{% static 'images/pause_music.png' %}" alt=""></button> 
+            <a href="#" class="game-mode-logo">
+                <div class="game-mode-item"><img src="{% static 'images/logo.png' %}" alt="Logo"></div>
+            </a>
+            <button id="compModeButton" onclick="compMode()" type="button"><img src="{% static 'images/compMode.png' %}" alt=""></button> 
+            <p id ="compModeCounter">Countdown</p>
+        </div>
+    
+        <!-- OYUN MODLARI (Logonun Altında) -->
+        <div class="game-modes">
+            <a href="{% url "classic" %}" class="game-mode">
+                <div class="game-mode-item"><img src="{% static 'images/skull.png' %}" alt="Skull Mode"></div>
+            </a>
+            <a href="{% url "fruit" %}" class="game-mode">
+                <div class="game-mode-item"><img src="{% static 'images/devilfruit.png' %}" alt="Devil Fruit Mode"></div>
+            </a>
+            <a href="#" class="game-mode">
+                <div class="game-mode-item"><img src="{% static 'images/wanted.png' %}" alt="Wanted Mode"></div>
+            </a>
+            <a href="#" class="game-mode">
+                <div class="game-mode-item"><img src="{% static 'images/laugh.png' %}" alt="Laugh Mode"></div>
+            </a>
+            
+        </div>
+    </div>
+
+        <!-- Ana Oyun Alanı -->
+        <main class="game-area">
+            <div class="guess-box-container">
+                <!-- Başlık Kutusu -->
+                <div class="game-title-box">
+                    <div class="game-title">
+                        <p id="display-fruit-name" style="font-size: 20px;"></p>
+                        <div class="clue-buttons">
+                            <button onclick="reveal_type_f()" id="hidden-type"></button>
+                            <button onclick="reveal_translate_f()" id="hidden-translate"></button>
+                            <button onclick="reveal_description_f()" id="hidden-description"></button>
+                        </div>
+
+                        <div id="clue-type" style="display:none;">
+                            This is my DIV element.
+                            </div>
+                            
+                            <div id="clue-translate" style="display:none;">
+                            This is my DIV element.
+                            </div>
+
+                            <div id="clue-description" style="display:none;">
+                                This is my DIV element.
+                                </div>
+                    </div>
+                </div>
+
+                <!-- Kullanıcı Girişi -->
+                <div class="guess-box">
+                    <input type="text" id="search-bar" style="font-family: 'PixelGame', Arial, sans-serif !important;" placeholder="Character name..." class="guess-input">
+                    <button class="guess-button" id="guess-button">&#9658;</button>
+                    
+                </div>
+                
+                <!-- Sonuçları göstermek için dropdown -->
+                <div id="search-results" class="dropdown" style="font-size:30px;"></div>
+                
+            </div>
+
+           
+        </main>
+
+        <!-- Sonuç Tablosu -->
+        <div class="result-table">
+            <div class="result-category"></div>
+        </div>
+
+        <div class="result-values">
+            
+            
+            
+        </div>
+        
+        
+        
+    </div>
+</body>
+<script src="{% static "js/fruit.js" %}"></script>
+</html>
