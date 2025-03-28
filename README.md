@@ -36,3 +36,5 @@ This game is designed for fans of One Piece who want a deeper and more flexible 
 python manage.py runserver
 ```
 ![Image](https://github.com/user-attachments/assets/1c2c0e4c-6823-46df-8e1d-457f32d3fa48)
+
+![Image](https://github.com/user-attachments/assets/445269d7-3c60-4e26-91c5-2691bd84d254)
